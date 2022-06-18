@@ -23,7 +23,6 @@ pipeline {
                     docker run --name ${IMAGE_NAME} -d -p 80:5000 -e PORT=5000 lucroz94/${IMAGE_NAME}:${IMAGE_TAG}
                     sleep 5s
                     '''
-
                 }
             }
         }
@@ -50,7 +49,7 @@ pipeline {
         }
         stage('Push image in staging and deploy it') {
             when {
-                expression { GIT_BRANCH == 'origin/master'}
+                expression {GIT_BRANCH == 'origin/master'}
             }
             agent any
             environment {
@@ -69,7 +68,7 @@ pipeline {
         }
         stage('Push image in production and deploy it') {
             when {
-                expression { GIT_BRANCH == 'origin/master'}
+                expression {GIT_BRANCH == 'origin/master'}
             }
             agent any
             environment {
